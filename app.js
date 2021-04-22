@@ -27,8 +27,16 @@ app.get('/api/movies', async (req, res, next) => {
   }
 });
 
-const port = process.env.PORT || 3000;
+const init = async () => {
+  try {
+    const port = process.env.PORT || 3000;
 
-app.listen(port, () => console.log(`listening on port ${port}`));
+    app.listen(port, () => console.log(`listening on port ${port}`));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+init();
 
 module.exports = app;
