@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const {
+  models: { Actor, Movie, Role },
+} = require('./db');
 
 app.get('/', (req, res, next) => {
   try {
@@ -15,8 +18,25 @@ app.get('/', (req, res, next) => {
   }
 });
 
-const port = process.env.PORT || 3000;
+app.get('/api/movies', async (req, res, next) => {
+  try {
+    const movies = await Movie.findAll();
+    res.send(movies);
+  } catch (error) {
+    next(error);
+  }
+});
 
-app.listen(port, () => console.log(`listening on port ${port}`));
+const init = async () => {
+  try {
+    const port = process.env.PORT || 3000;
+
+    app.listen(port, () => console.log(`listening on port ${port}`));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+init();
 
 module.exports = app;

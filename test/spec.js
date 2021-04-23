@@ -14,4 +14,17 @@ describe('get route works', () => {
     expect(response.status).to.equal(200);
     expect(response.text).to.include('hello world!');
   });
+  describe('check /api/movies', () => {
+    it('/api/movies works', async () => {
+      const response = await app.get('/api/movies');
+      expect(response.status).to.equal(200);
+      expect(response.body.length).to.equal(4);
+    });
+  });
+  // describe('check /api/actors', () => {
+  //   it('/api/actors works', async()=> {
+  //     const response = await app.get('/api/actors')
+  //     expect(response.include)
+  //   })
+  // })
 });

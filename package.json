@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "test:dev": "npm run test -- --watch",
-    "start": "node app.js",
-    "start:dev": "npm start -- --watch"
+    "test": "mocha --exit",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
