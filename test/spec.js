@@ -21,10 +21,18 @@ describe('get route works', () => {
       expect(response.body.length).to.equal(4);
     });
   });
-  // describe('check /api/actors', () => {
-  //   it('/api/actors works', async()=> {
-  //     const response = await app.get('/api/actors')
-  //     expect(response.include)
-  //   })
-  // })
+  describe('check /api/actors', () => {
+    it('/api/actors should exist', async () => {
+      const response = await app.get('/api/actors');
+      expect(response.status).to.equal(200);
+    });
+    it('/api/actors should have 5 actors', async () => {
+      const response = await app.get('/api/actors');
+      expect(response.body.length).to.equal(5);
+    });
+    it('/api/actors should have actor Leo', async () => {
+      const response = await app.get('/api/actors');
+      expect(response.text).to.include('Leo');
+    });
+  });
 });

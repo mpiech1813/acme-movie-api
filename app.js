@@ -27,6 +27,15 @@ app.get('/api/movies', async (req, res, next) => {
   }
 });
 
+app.get('/api/actors', async (req, res, next) => {
+  try {
+    const actors = await Actor.findAll();
+    res.send(actors);
+  } catch (error) {
+    next(error);
+  }
+});
+
 const init = async () => {
   try {
     const port = process.env.PORT || 3000;
