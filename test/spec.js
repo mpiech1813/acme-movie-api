@@ -8,7 +8,6 @@ describe('initial test', () => {
   });
 });
 describe('get route works', () => {
-  beforeEach(() => syncAndSeed());
   it('gets a message', async () => {
     const response = await app.get('/');
     expect(response.status).to.equal(200);

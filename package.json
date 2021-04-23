@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --exit",
-    "test:dev":"npm run test -- --watch",
-    "start": "node app.js"
+    "test:dev": "DATABASE_URL=postgres://localhost/acme_db npm run test -- --watch",
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
   "homepage": "https://github.com/AnnaLitovskaya/acme-movie-api#readme",
   "devDependencies": {
     "chai": "^4.3.4",
-    "mocha": "^8.3.2"
+    "mocha": "^8.3.2",
+    "nodemon": "^2.0.7"
   },
   "dependencies": {
     "express": "^4.17.1",
